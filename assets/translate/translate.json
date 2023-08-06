@@ -1,0 +1,15 @@
+{
+  "USER_COL_HEADER": {
+    "FIRST_NAME": "نام",
+    "LAST_NAME": "نام‌خانوادگی",
+    "FULL_NAME": "نام و نام‌خانوادگی",
+    "USER_ID": "کدملی",
+    "BIRTHDAY": "تولد",
+    "TELEPHONE": "تلفن",
+    "PHONE_NUMBER": "موبایل",
+    "EMAIL": "ایمیل",
+    "COUNTRY": "کشور",
+    "STATE": "استان",
+    "CRATE_DATE": "تغییرات"
+  }
+}

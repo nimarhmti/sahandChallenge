@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bgColor: #fff;
+}
+
+html {
+  direction: rtl;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bgColor);
+}
