@@ -2,6 +2,7 @@
 import { styled } from "@mui/material/styles";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
+import { baseColumnModel } from "./Table.interface";
 // customize Styles
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -23,23 +24,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 //table head items
-export const TableHeadItem = (item: any) => (
-  <StyledTableCell key={item.id} align={item.align}>
-    {item.label}
-  </StyledTableCell>
+export const TableHeadItem = ({ header }: baseColumnModel) => (
+  <StyledTableCell align="right">{header}</StyledTableCell>
 );
 
 //table body items
-export const TableRowItems = ({ item }: any) => {
-  return (
-    <StyledTableRow key={item.id}>
-      <StyledTableCell component="th" scope="row" align="right">
-        {item.name}
-      </StyledTableCell>
-      <StyledTableCell align="right">{item.calories}</StyledTableCell>
-      <StyledTableCell align="right">{item.fat}</StyledTableCell>
-      <StyledTableCell align="right">{item.carbs}</StyledTableCell>
-      <StyledTableCell align="right">{item.protein}</StyledTableCell>
-    </StyledTableRow>
-  );
-};
+export const TableRowItems = ({ item }: any) => (
+  <StyledTableRow key={item.id}>
+    <StyledTableCell component="th" scope="row" align="right">
+      {item.name}
+    </StyledTableCell>
+    <StyledTableCell align="right">{item.calories}</StyledTableCell>
+    <StyledTableCell align="right">{item.fat}</StyledTableCell>
+    <StyledTableCell align="right">{item.carbs}</StyledTableCell>
+    <StyledTableCell align="right">{item.protein}</StyledTableCell>
+  </StyledTableRow>
+);

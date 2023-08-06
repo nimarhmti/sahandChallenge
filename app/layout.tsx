@@ -1,11 +1,14 @@
 import "../Styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Vazirmatn } from "next/font/google";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@/config/muiTheme";
 import { Navbar } from "@/components/Navbar/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="fa">
       <ThemeProvider theme={theme}>
-        <body className={inter.className}>
+        <body suppressHydrationWarning={true} className={vazirmatn.className}>
           <Navbar />
           {children}
         </body>

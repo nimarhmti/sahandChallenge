@@ -1,5 +1,5 @@
 export interface baseColumnModel {
-  key: string;
+  key?: string;
   header: string | null;
-  name: string;
+  name?: string;
 }

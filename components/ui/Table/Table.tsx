@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { TableHeadItem, TableRowItems } from "./TableItems";
 import { baseColumnModel } from "./Table.interface";
+import { headers } from "next/dist/client/components/headers";
 //change style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -55,13 +56,9 @@ export const TableWrapper = ({ data, column }: Props) => {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="right">
-              Dessert (100g serving)
-            </StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            {memorizedColumn?.map((item: baseColumnModel) => (
+              <TableHeadItem header={item.header} key={item.key} />
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>

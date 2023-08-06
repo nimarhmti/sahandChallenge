@@ -12,8 +12,8 @@ export const Input = forwardRef<HTMLInputElement, TextFieldProps>(
         size="small"
         inputRef={ref}
         sx={{ width: "100%" }}
-        inputProps={{ style: { fontSize: 16 } }}
-        InputLabelProps={{ style: { fontSize: 16 } }}
+        inputProps={{ style: { fontSize: "1.2rem" } }}
+        InputLabelProps={{ style: { fontSize: "1.2rem" } }}
         {...rest}
       />
     );
