@@ -1,0 +1,21 @@
+ {
+    id: 1,
+    userId: 4490495781,
+    fullName: "نیمارحمتی",
+    education: "لیسانس",
+    status: "فعال",
+  },
+  {
+    id: 2,
+    userId: 4490478781,
+    fullName: "سعید محمدی",
+    education: "دیپلم",
+    status: "فعال",
+  },
+  {
+    id: 2,
+    userId: 4490235781,
+    fullName: "امین تاج",
+    education: "فوق لیسانس",
+    status: "غیر فعال",
+  },

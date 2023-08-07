@@ -6,14 +6,16 @@ import { TableWrapper } from "@/components/ui/Table/Table";
 import { useInfoColumn } from "../components/user/column";
 import translate from "@/assets/translate/translate.json";
 import { UserForm } from "@/components/user/Userform";
+import { getAllPerson } from "@/Services/Persons/getAllpersons";
 
-export default function Home() {
+export default async function Home() {
+  const persons = await getAllPerson();
   const data = [{ name: "nima" }];
 
   return (
     <Container>
       <FromWrapper title={translate.GENERAL.TABLE}>
-        <UserForm />
+        <UserForm data={persons} />
         <TableWrapper data={data} column={useInfoColumn} />
       </FromWrapper>
     </Container>

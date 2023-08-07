@@ -34,7 +34,7 @@ const formRules = {
   },
   userId: {
     required: translate.GENERAL.VALIDATION,
-    minLength: { value: 8, message: translate.GENERAL.USERID_VALIDATION },
+    minLength: { value: 10, message: translate.GENERAL.USERID_VALIDATION },
   },
   education: {
     required: true,
@@ -43,8 +43,11 @@ const formRules = {
     required: true,
   },
 };
+interface Props {
+  data: any;
+}
 //main component
-export const UserForm = () => {
+export const UserForm = ({ data }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   //form handler
   const {
@@ -65,7 +68,7 @@ export const UserForm = () => {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  console.log(data);
   return (
     <Box sx={userFromStyle}>
       <Button onClick={handleOpen} color="primary" variant="contained">
