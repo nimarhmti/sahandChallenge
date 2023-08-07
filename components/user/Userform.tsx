@@ -23,7 +23,7 @@ import { degreesItems, activitiesItems } from "./formSelectBoxData";
 const initialValue: userFomModel = {
   firstName: "",
   lastName: "",
-  userId: null,
+  userId: 0,
   education: degrees.upperMed,
   status: activities.on,
 };
@@ -33,7 +33,8 @@ const formRules = {
     required: true,
   },
   userId: {
-    required: true,
+    required: translate.GENERAL.VALIDATION,
+    minLength: { value: 8, message: translate.GENERAL.USERID_VALIDATION },
   },
   education: {
     required: true,
@@ -130,9 +131,7 @@ export const UserForm = () => {
                         {...register("userId")}
                         placeholder={translate.USER_COL_HEADER.USER_ID}
                         error={!!errors?.userId}
-                        helperText={
-                          errors?.userId ? translate.GENERAL.VALIDATION : ""
-                        }
+                        helperText={errors?.userId ? errors.userId.message : ""}
                         {...field}
                       />
                     )}
@@ -142,7 +141,7 @@ export const UserForm = () => {
                   <Controller
                     name="education"
                     control={control}
-                    rules={formRules.firstName}
+                    rules={formRules.education}
                     render={({ field: { onChange, value } }) => (
                       <SelectBox
                         variant="outlined"
@@ -164,7 +163,7 @@ export const UserForm = () => {
                   <Controller
                     name="status"
                     control={control}
-                    rules={formRules.firstName}
+                    rules={formRules.education}
                     render={({ field: { onChange, value } }) => (
                       <SelectBox
                         variant="outlined"

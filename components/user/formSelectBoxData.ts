@@ -34,6 +34,6 @@ export const degreesItems: selectBoxItemModel[] = [
 ];
 
 export const activitiesItems: selectBoxItemModel[] = [
-  { id: 1, label: ACTIVE, value: on },
+  { id: 0, label: ACTIVE, value: on },
   { id: 1, label: DISABLED, value: off },
 ];

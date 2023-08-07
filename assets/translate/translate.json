@@ -4,10 +4,12 @@
     "PERSONS": "اشخاص",
     "ADD_PERSON": "شخص جدید",
     "VALIDATION": "لطفا این فیلد را پر کنید",
+    "USERID_VALIDATION": "کد ملی وارد شده معتبر نیست",
     "DEGREES": "مقاطع",
     "STATUS": "وضعیت",
     "SUBMIT": "ذخیره",
-    "CANCEL": "انصراف"
+    "CANCEL": "انصراف",
+    "EDUCATIONS": "تحصیلات"
   },
   "USER_COL_HEADER": {
     "FIRST_NAME": "نام",

@@ -2,7 +2,7 @@
 import { styled } from "@mui/material/styles";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import { baseColumnModel } from "./Table.interface";
+
 // customize Styles
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -24,9 +24,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 //table head items
-export const TableHeadItem = ({ header }: baseColumnModel) => (
-  <StyledTableCell align="right">{header}</StyledTableCell>
-);
 
 //table body items
 export const TableRowItems = ({ item }: any) => (

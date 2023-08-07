@@ -10,7 +10,7 @@ export enum activities {
   off = "disabled",
 }
 export interface userFomModel {
-  userId: number | null;
+  userId: number;
   firstName: string;
   lastName?: string;
   education: degrees;

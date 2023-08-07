@@ -7,7 +7,6 @@ import { Navbar } from "@/components/Navbar/Navbar";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
