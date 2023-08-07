@@ -34,5 +34,9 @@
   "STATUS": {
     "ACTIVE": "فعال",
     "DISABLED": "غیرفعال"
+  },
+  "ERROR_MESSAGES": {
+    "DUPLICATED": "اطلاعات شخص مورد نظر قبلا وارد شده است",
+    "NATIONAL_CODE": "لطفا کد ملی را صحیح وار کنید"
   }
 }

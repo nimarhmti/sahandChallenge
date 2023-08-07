@@ -1,4 +1,4 @@
-export interface getAllPersonModel {
+export interface PersonModel {
   id: number;
   userId: number;
   fullName: string;
