@@ -22,6 +22,7 @@ import {
   initialValue,
   alertInitialValues,
 } from "./useformUtils";
+import { getAllPerson } from "@/Services/Persons/getAllpersons";
 
 //main component
 export const UserForm = () => {
@@ -69,6 +70,7 @@ export const UserForm = () => {
           message: translate.GENERAL.SUCCESS,
           open: true,
         });
+        getAllPerson();
       })
       .catch((err) => {
         setOpenAlert({

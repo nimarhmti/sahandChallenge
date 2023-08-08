@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <Container>
       <FromWrapper title={translate.GENERAL.TABLE}>
-        <UserForm data={persons} />
+        <UserForm />
         <TableWrapper data={persons} column={useInfoColumn} />
       </FromWrapper>
     </Container>
