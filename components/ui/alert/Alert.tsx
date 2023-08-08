@@ -34,7 +34,11 @@ export default function BasicAlerts({
         severity={isError ? "error" : "success"}
         sx={{ width: "100%" }}
       >
-        {message}
+        <p
+          style={{ marginLeft: "8px", marginRight: "8px", fontSize: "1.1rem" }}
+        >
+          {message}
+        </p>
       </Alert>
     </Snackbar>
   );

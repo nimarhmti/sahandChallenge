@@ -1,4 +1,4 @@
-import { PersonModel } from "@/Services/Persons/getPerson.interface";
+import { PersonModel } from "@/Services/Persons/Person.interface";
 
 export interface resType {
   message: string;
