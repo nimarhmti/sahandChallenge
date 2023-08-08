@@ -27,7 +27,7 @@ export const formRules = {
 export const initialValue: userFomModel = {
   firstName: "",
   lastName: "",
-  userId: 0,
+  userId: "",
   education: translate.DEGREES.BACHELOR,
   status: translate.STATUS.ACTIVE,
 };

@@ -1,5 +1,5 @@
 export interface userFomModel {
-  userId: number;
+  userId: string;
   firstName: string;
   lastName?: string;
   education: string;

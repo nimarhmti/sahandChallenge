@@ -2,12 +2,9 @@ import { type } from "os";
 
 export interface PersonModel {
   id: number;
-  userId: number;
+  userId: string;
   fullName: string;
   education: string;
   status: string;
 }
-export type addNewPerson = Omit<
-  PersonModel,
-  "userId" | "fullName" | "education" | "status"
->;
+export type addNewPerson = Omit<PersonModel, "id">;

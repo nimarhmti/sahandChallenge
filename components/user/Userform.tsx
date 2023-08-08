@@ -45,6 +45,15 @@ export const UserForm = () => {
   //handler function
   const onSubmit = (data: userFomModel) => {
     const { userId, education, firstName, status, lastName } = data;
+    if (!nationalCodeValidation(userId)) {
+      setOpenAlert({
+        isError: true,
+        message: translate.ERROR_MESSAGES.NATIONAL_CODE,
+        open: true,
+      });
+      return;
+    }
+
     const newPerson = {
       fullName: firstName + lastName,
       userId: userId,
@@ -139,7 +148,7 @@ export const UserForm = () => {
                     rules={formRules.userId}
                     render={({ field }) => (
                       <Input
-                        type="number"
+                        type="text"
                         fullWidth
                         {...register("userId")}
                         placeholder={translate.USER_COL_HEADER.USER_ID}

@@ -9,7 +9,6 @@ import Paper from "@mui/material/Paper";
 import { TableRowItems } from "./TableItems";
 import type { Props, baseColumnModel } from "./Table.interface";
 import { TableHeadComponents } from "./TabelHeader";
-import { PersonModel } from "@/Services/Persons/Person.interface";
 import { TableRowComponents } from "./TableRow";
 
 // interfaces
