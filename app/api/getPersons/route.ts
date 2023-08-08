@@ -15,12 +15,3 @@ export const GET = async (req: Request, res: Response) => {
     return NextResponse.json({ message: "ERROR", error }, { status: 500 });
   }
 };
-export const POST = async (req: Request, res: Response) => {
-  const data: PersonModel = await req.json();
-
-  try {
-    addNewPerson(data);
-  } catch (error) {
-    return NextResponse.json({ message: error, error }, { status: 500 });
-  }
-};

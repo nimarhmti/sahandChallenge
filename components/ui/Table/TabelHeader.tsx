@@ -17,13 +17,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 interface Props {
   col: baseColumnModel[];
 }
+const cellAlign = "right";
 //table head items
 export const TableHeadComponents = ({ col }: Props) => {
   return (
     <TableHead>
       <TableRow>
         {col.map((item: baseColumnModel) => (
-          <StyledTableCell align="right" key={item.key}>
+          <StyledTableCell align={cellAlign} key={item.key}>
             {item.header}
           </StyledTableCell>
         ))}

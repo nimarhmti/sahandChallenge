@@ -13,7 +13,7 @@ export const persons: PersonModel[] = [
     userId: 4490493481,
     fullName: "سینا",
     education: "دیپلم",
-    status: "فعال",
+    status: "غیر فعال",
   },
   {
     id: 3,

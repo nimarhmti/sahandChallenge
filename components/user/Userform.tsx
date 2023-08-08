@@ -8,16 +8,12 @@ import translate from "@/assets/translate/translate.json";
 import FormControl from "@mui/material/FormControl";
 import { useForm, Controller } from "react-hook-form";
 import { modalContentStyle, userFromStyle } from "./UserFrom.Style";
-import {
-  userFomModel,
-  selectBoxItemModel,
-  degrees,
-  activities,
-} from "./UserFrom.interface";
+import { userFomModel, selectBoxItemModel } from "./UserFrom.interface";
 import { Input } from "../ui/Input/Input";
 import { SelectBox } from "../ui/selectBox/SelectBox";
 import MenuItem from "@mui/material/MenuItem";
 import { degreesItems, activitiesItems } from "./formSelectBoxData";
+import { activities, degrees } from "@/enum/enums";
 
 // form initial values
 const initialValue: userFomModel = {
@@ -62,8 +58,8 @@ export const UserForm = ({ data }: Props) => {
 
   //handler function
   const onSubmit = (data: userFomModel) => {
-    console.log(data);
-    reset();
+    // console.log(data);
+    // reset();
   };
 
   const handleOpen = () => setOpen(true);

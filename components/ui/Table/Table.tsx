@@ -7,29 +7,25 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { TableRowItems } from "./TableItems";
-import type { baseColumnModel } from "./Table.interface";
+import type { Props, baseColumnModel } from "./Table.interface";
 import { TableHeadComponents } from "./TabelHeader";
+import { PersonModel } from "@/Services/Persons/getPerson.interface";
+import { TableRowComponents } from "./TableRow";
 
 // interfaces
 
-interface Props {
-  column: baseColumnModel[];
-  data: any[] | undefined;
-}
 //main components
-export const TableWrapper = ({ data, column }: Props) => {
+const TableWrapper = ({ data, column }: Props) => {
   const memorizedData = useMemo(() => data ?? [], [data]);
   const memorizedColumn = useMemo(() => column, [column]);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHeadComponents col={memorizedColumn} />
-        <TableBody>
-          {/* {memorizedData?.map((row, index) => (
-            <TableRowItems item={row} key={row.id} />
-          ))} */}
-        </TableBody>
+        <TableRowComponents column={memorizedColumn} data={memorizedData} />
       </Table>
     </TableContainer>
   );
 };
+
+export default memo(TableWrapper);

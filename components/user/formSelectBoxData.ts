@@ -1,4 +1,5 @@
-import { selectBoxItemModel, degrees, activities } from "./UserFrom.interface";
+import { activities, degrees } from "@/enum/enums";
+import { selectBoxItemModel } from "./UserFrom.interface";
 import translate from "@/assets/translate/translate.json";
 const { BACHELOR, DIPLOMA, DOCTORAL, HIGH_SCHOOL, MASTER } = translate.DEGREES;
 const { ACTIVE, DISABLED } = translate.STATUS;

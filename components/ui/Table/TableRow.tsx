@@ -1,12 +1,8 @@
-import { ColumnDefinitionType, baseColumnModel } from "./Table.interface";
+import { Props, baseColumnModel } from "./Table.interface";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
-type TableRowsProps<T, K extends keyof T> = {
-  data: Array<T>;
-  columns: Array<ColumnDefinitionType<T, K>>;
-};
 
 //customize
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -27,18 +23,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 //main components
-interface Props {
-  col: baseColumnModel[];
-  data: any[];
-}
-
-const TableRowComponents = ({ col, data }: Props) => {
+const cellAlign = "right";
+export const TableRowComponents = ({ column, data }: Props) => {
   const rows = data?.map((row: any) => (
     <StyledTableRow key={row?.id}>
-      {col.map((column: baseColumnModel) => {
+      {column.map((column: baseColumnModel) => {
         return (
-          <StyledTableCell key={column.key} align="right">
-            {row?.val}
+          <StyledTableCell key={column.key} align={cellAlign}>
+            {row[column.key]}
           </StyledTableCell>
         );
       })}

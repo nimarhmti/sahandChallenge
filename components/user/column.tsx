@@ -2,6 +2,11 @@ import { baseColumnModel } from "@/components/ui/Table/Table.interface";
 import translate from "@/assets/translate/translate.json";
 export const useInfoColumn: baseColumnModel[] = [
   {
+    key: "id",
+    name: "id",
+    header: "#",
+  },
+  {
     key: "userId",
     name: "userId",
     header: translate.USER_COL_HEADER.USER_ID,
