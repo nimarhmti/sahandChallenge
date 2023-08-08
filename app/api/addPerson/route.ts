@@ -4,7 +4,7 @@ import { PersonModel } from "@/Services/Persons/getPerson.interface";
 export const POST = async (req: Request, res: Response) => {
   const { education, fullName, id, status, userId }: PersonModel =
     await req.json();
-  const missingValue = !education || !fullName || !id || !userId || status;
+  const missingValue = !education || !fullName || !id || !userId || !status;
   if (missingValue)
     return NextResponse.json(
       { message: "missing required Data" },

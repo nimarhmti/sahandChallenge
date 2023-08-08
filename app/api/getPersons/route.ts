@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { addNewPerson, getAllPersons } from "../handlerFunction";
-import { PersonModel } from "@/Services/Persons/getPerson.interface";
+import { getAllPersons } from "../handlerFunction";
 
 export const GET = async (req: Request, res: Response) => {
   try {
