@@ -3,6 +3,9 @@ import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
+import Chip from "@mui/material/Chip";
+import translate from "@/assets/translate/translate.json";
+const { DISABLED, ACTIVE } = translate.STATUS;
 
 //customize
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -28,9 +31,16 @@ export const TableRowComponents = ({ column, data }: Props) => {
   const rows = data?.map((row: any) => (
     <StyledTableRow key={row?.id}>
       {column.map((column: baseColumnModel) => {
+        const Label = column?.key;
+        const rowCell = row[Label];
         return (
           <StyledTableCell key={column.key} align={cellAlign}>
-            {row[column.key]}
+            {rowCell === ACTIVE ? (
+              <Chip label={rowCell} color="primary" />
+            ) : (
+              rowCell
+            )}
+            {/* {row[column?.key]} */}
           </StyledTableCell>
         );
       })}

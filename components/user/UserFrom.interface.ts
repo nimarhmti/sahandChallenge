@@ -1,11 +1,9 @@
-import { activities, degrees } from "@/enum/enums";
-
 export interface userFomModel {
   userId: number;
   firstName: string;
   lastName?: string;
-  education: degrees;
-  status: activities;
+  education: string;
+  status: string;
 }
 export interface selectBoxItemModel {
   value: string;

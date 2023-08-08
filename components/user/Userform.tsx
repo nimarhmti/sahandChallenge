@@ -13,38 +13,24 @@ import { Input } from "../ui/Input/Input";
 import { SelectBox } from "../ui/selectBox/SelectBox";
 import MenuItem from "@mui/material/MenuItem";
 import { degreesItems, activitiesItems } from "./formSelectBoxData";
-import { activities, degrees } from "@/enum/enums";
+import { nationalCodeValidation } from "@/utils/userIdValidation";
+import { addPerson } from "@/Services/Persons/addPersons";
+import BasicAlerts from "../ui/alert/Alert";
+import {
+  alertDetails,
+  formRules,
+  initialValue,
+  alertInitialValues,
+} from "./useformUtils";
 
-// form initial values
-const initialValue: userFomModel = {
-  firstName: "",
-  lastName: "",
-  userId: 0,
-  education: degrees.upperMed,
-  status: activities.on,
-};
-//form rules object
-const formRules = {
-  firstName: {
-    required: true,
-  },
-  userId: {
-    required: translate.GENERAL.VALIDATION,
-    minLength: { value: 10, message: translate.GENERAL.USERID_VALIDATION },
-  },
-  education: {
-    required: true,
-  },
-  status: {
-    required: true,
-  },
-};
-interface Props {
-  data: any;
-}
 //main component
-export const UserForm = ({ data }: Props) => {
+export const UserForm = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [openAlert, setOpenAlert] = useState<alertDetails>({
+    isError: false,
+    message: "",
+    open: false,
+  });
   //form handler
   const {
     control,
@@ -58,19 +44,47 @@ export const UserForm = ({ data }: Props) => {
 
   //handler function
   const onSubmit = (data: userFomModel) => {
-    // console.log(data);
-    // reset();
+    const { userId, education, firstName, status, lastName } = data;
+    const newPerson = {
+      fullName: firstName + lastName,
+      userId: userId,
+      education: education,
+      status: status,
+    };
+    addPerson(newPerson)
+      .then((res) => {
+        reset();
+        handleClose();
+        setOpenAlert({
+          isError: false,
+          message: translate.GENERAL.SUCCESS,
+          open: true,
+        });
+      })
+      .catch((err) => {
+        setOpenAlert({
+          isError: true,
+          message: translate.ERROR_MESSAGES.NATIONAL_CODE,
+          open: true,
+        });
+      });
   };
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(data);
+  const handleCloseAlert = () => setOpenAlert(alertInitialValues);
+
   return (
     <Box sx={userFromStyle}>
+      <BasicAlerts
+        isError={openAlert.isError}
+        isOpen={openAlert.open}
+        message={openAlert.message}
+        handleClose={handleCloseAlert}
+      />
       <Button onClick={handleOpen} color="primary" variant="contained">
         {translate.GENERAL.ADD_PERSON}&nbsp;+
       </Button>
-
       <Modal
         open={open}
         onClose={handleClose}

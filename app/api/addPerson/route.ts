@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 import { addNewPerson } from "../handlerFunction";
-import { PersonModel } from "@/Services/Persons/getPerson.interface";
+import { resType } from "../data.interface";
 export const POST = async (req: Request, res: Response) => {
-  const { education, fullName, id, status, userId }: PersonModel =
-    await req.json();
-  const missingValue = !education || !fullName || !id || !userId || !status;
-  if (missingValue)
-    return NextResponse.json(
-      { message: "missing required Data" },
-      { status: 403 }
-    );
-  return NextResponse.json({ message: "ok" }, { status: 200 });
+  try {
+    const Data: resType = await req.json();
+    const { data } = Data;
+    addNewPerson(data);
+    return NextResponse.json({ message: "Ok", Data }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: "ERROR", error }, { status: 500 });
+  }
 };
